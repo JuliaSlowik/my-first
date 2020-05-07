@@ -1,0 +1,89 @@
+import random
+import time
+
+while True:
+    print("Witaj w MENU!")
+    print("W czym mogę pomóc?")
+    print("żeby zobaczyć autora -kliknij a")
+    print("żeby przejść do gry czarodzej-kliknij 1")
+    print("żeby przejść do generatora haseł-kliknij 2")
+    print("żeby przejść do gry z komputerem- kliknij 3")
+    print("żeby wyjść- kliknij w")
+    odpowiedz=input()
+    if odpowiedz=="a":
+        print("Autorem jest: Julia Słowicka")
+    elif odpowiedz=="1":
+        print("Witaj w grze- Czarodziej!")
+        time.sleep(2)
+        print("Gotowy? Wpisz tak/nie.")
+        while True:
+            odpowiedz=input()
+            if odpowiedz=="tak":
+                print("Co wyciągnie z kapelusza czarodziej?")
+                time.sleep(3)
+                wylosowany=random.randint(1,100)
+                if wylosowany==1:
+                    print("sztabka złota")
+
+                wylosowany2=random.randint(1,10)
+                if wylosowany2==1:
+                    print("husteczka")
+
+                wylosowany3=random.randint(1,2)
+                if wylosowany3==1:
+                    print("mikser")
+
+                wylosowany4=random.randint(1,50)
+                if wylosowany4==1:
+                    print("konsola")
+
+                wylosowany5=random.randint(1,100)
+                if wylosowany5!=100:
+                    print("balonik")
+                    print("Chcesz zagrać jeszcze raz?")
+            elif odpowiedz=="nie":
+                break
+            else:
+                print("Wpisz \"tak\" lub \"nie\"")
+    elif odpowiedz=="2":
+        print("Wylosujemy Ci hasło :)")
+        time.sleep(2)
+        alfabet="ABCDEFGHIJKLMNOPRSTUWYZabcdefghijklmnoprstuwyz"
+        litera1=random.choice(alfabet)
+        litera2=random.choice(alfabet)
+        litera3=random.choice(alfabet)
+        litera4=random.choice(alfabet)
+
+        cyfra1=random.randint(0,10)
+        cyfra2=random.randint(0,10)
+        cyfry=cyfra1,cyfra2
+        litery=litera1,litera2,litera3,litera4
+        losowa=random.randint(1,2)
+        if losowa==1:
+            print("Twoje hasło to:",litery,cyfry)
+        else:
+            print("Twoje hasło to:",cyfry,litery)
+    elif odpowiedz=="3":
+
+        punktygracza=0
+        punktykomputera=0
+        print("Witaj w naszej grze z komputerem!")
+        for i in range (10):
+            print("Podaj liczbę od 1 do 100")
+            gracz=input()
+            komputer=random.randint(1,100)
+            if int(komputer)>int(gracz):
+                print("Przegrałeś")
+                punktykomputera=punktykomputera+1
+            elif komputer==gracz:
+                print("remis")
+            else:
+                print("Wygrałeś")
+                punktygracza=punktygracza+1
+        print("Wynik gry to:\nty:", punktygracza,'\nkomputer:', punktykomputera)
+    elif odpowiedz=="w":
+        break
+    else:
+        print("Error. Spróbuj ponownie.")
+
+print("Do zobaczenia!")
